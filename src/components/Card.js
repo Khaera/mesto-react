@@ -1,7 +1,7 @@
 import likeImage from '../images/like.svg';
 
 function Card ( { card, onCardClick, onDeleteCard } ) {
-  const {link, name } = card;
+  const {link, name, likes } = card;
 
   function handleClickCard() {
     onCardClick(card);
@@ -14,7 +14,7 @@ function Card ( { card, onCardClick, onDeleteCard } ) {
       <h2 className="element__title">{name}</h2>
       <button type="button" className="element__like">
         <img src={likeImage} alt="Кнопка Лайк" className="element__like-image"/>
-        <span className="element__like-count">0</span>
+        <span className="element__like-count">{likes.length}</span>
       </button>
     </div>
   </li>

@@ -55,7 +55,7 @@ function App() {
     <PopupWithForm
     name="profile-edit"
     title="Редактировать профиль"
-    SubmitButtonText="Сохранить"
+    submitButtonText="Сохранить"
     onClose={closeAllPopups}
     isOpen={isEditProfilePopupOpen}>
       <label className="popup__field">
@@ -71,7 +71,7 @@ function App() {
     <PopupWithForm
     name="card-add"
     title="Новое место"
-    SubmitButtonText="Создать"
+    submitButtonText="Создать"
     isOpen={isAddPlacePopupOpen}
     onClose={closeAllPopups}>
     <label className="popup__field">
@@ -87,7 +87,7 @@ function App() {
     <PopupWithForm
     name="edit-avatar"
     title="Обновить аватар"
-    SubmitButtonText="Сохранить"
+    submitButtonText="Сохранить"
     isOpen={isEditAvatarPopupOpen}
     onClose={closeAllPopups}>
     <label className="popup__field">
@@ -99,7 +99,7 @@ function App() {
     <PopupWithForm
       name="confirm"
       title="Вы уверены?"
-      SubmitButtonText="Да"
+      submitButtonText="Да"
       isOpen={isConfirmDeleteCardPopupOpen}
       onClose={closeAllPopups}>
     </PopupWithForm>

@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Проектная работа #10. "Место" - путешествия по России. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## :open_file_folder: Описание проекта:
+Данный проект представляет собой одностраничный сайт, на котором представлены карточки с фотографиями, которые загружают пользователи.
+## :wrench: Стек технологий:
+:red_circle: HTML    
+:red_circle: CSS    
+:red_circle: БЭМ    
+:red_circle: JavaScript    
+:red_circle: React     
+:red_circle: Create React App
 
-## Available Scripts
+## :hammer: Функционал проекта:
+:heavy_check_mark: адаптивная страница под телефоны, планшеты и компьютеры    
+:heavy_check_mark: открытие модальных окон с помощью React    
+:heavy_check_mark: увеличение изображений карточек    
+:heavy_check_mark: получение данных о пользователе и карточки через API    
+:heavy_check_mark: работа с функциональными компонентами и хуками (React)
 
-In the project directory, you can run:
+## :warning: Системные требования Git
+:red_circle: Процессор: 1 ГГц и более    
+:red_circle: ОЗУ: не менее 512 Мб    
+:red_circle: Место на жестком диске: от 50 Мб и выше
 
-### `npm start`
+## :question: Инструкция по использованию проекта:
+:one: Открыть командную строку    
+:two: Клонировать репозиторий (git clone https://github.com/Khaera/mesto-react.git)    
+:three: Перейти в папку проекта (cd mesto)    
+:four: Установить скрипты (npm install)    
+:five: Запустить сборку проекта (npm run build)    
+:six: Запустить удалённый сервер (npm start)    
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## :soon: Планы на будущее:
+:black_square_button: Добавить светлую версию сайта    
+:black_square_button: Переписать код проекта с использованием фреймворка React
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## :fire: Ссылка на проект:
+[GitHub Pages](https://khaera.github.io/mesto-react/)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Спасибо за внимание! :heart:

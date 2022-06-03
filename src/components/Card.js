@@ -22,10 +22,15 @@ function Card ( { card, onCardClick, onDeleteCard, onCardLike } ) {
   function handleLikeClick() {
     onCardLike(card);
   }
+
+  function handleDeleteClick() {
+    onDeleteCard(card);
+  }
+
   return (
     <li className="element">
     <img className="element__image" src={card.link} alt={card.name} onClick={handleClickCard}/>
-    <button type="button" className={cardDeleteButtonClassName} onClick={onDeleteCard}></button>
+    <button type="button" className={cardDeleteButtonClassName} onClick={handleDeleteClick}></button>
     <div className="element__info">
       <h2 className="element__title">{card.name}</h2>
       <button type="button" className="element__like">

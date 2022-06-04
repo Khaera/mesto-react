@@ -2,7 +2,7 @@ import likeImage from '../images/like.svg';
 import React from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Card ( { card, onCardClick, onDeleteCard, onCardLike } ) {
+function Card ( { card, onCardClick, onDeleteClick, onCardLike } ) {
   const currentUser = React.useContext(CurrentUserContext);
 
   //проверяем кто создал карточку
@@ -24,7 +24,7 @@ function Card ( { card, onCardClick, onDeleteCard, onCardLike } ) {
   }
 
   function handleDeleteClick() {
-    onDeleteCard(card);
+    onDeleteClick(card);
   }
 
   return (

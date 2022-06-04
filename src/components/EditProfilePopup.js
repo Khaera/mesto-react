@@ -41,7 +41,7 @@ function EditProfilePopup( {
       isOpen={isOpen}
       onSubmit={handleSubmit}>
         <label className="popup__field">
-          <input value={name}
+          <input value={name || ''}
           onChange={handleNameChange}
           id="name-input"
           name="name"
@@ -56,7 +56,7 @@ function EditProfilePopup( {
         <label className="popup__field">
           <input
           onChange={handleDescriptionChange}
-          value={description}
+          value={description || ''}
           id="career-input"
           name="career"
           type="text"

@@ -42,7 +42,16 @@ function EditAvatarPopup( {
       onSubmit={handleSubmit}
       isValid={inputError.isValid}>
       <label className="popup__field">
-        <input onChange={handleChange} ref={avatarRef} name="avatar" type="url" className="popup__input popup__input_edit_avatar" required placeholder="Ссылка на картинку" />
+        <input
+        onChange={handleChange}
+        ref={avatarRef}
+        name="avatar"
+        type="url"
+        className={!inputError.errorMessage ?
+        'popup__input popup__input_edit_avatar' :
+        'popup__input popup__input_edit_avatar popup__input_invalid'}
+        required
+        placeholder="Ссылка на картинку" />
         <span className={!inputError.isValid ? 'popup__input-error popup__input-error_active' : 'popup__input-error'}>{inputError.errorMessage}</span>
       </label>
       </PopupWithForm>

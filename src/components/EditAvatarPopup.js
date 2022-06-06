@@ -32,8 +32,8 @@ function EditAvatarPopup( {
     });
   }
 
-  const spanAvatarErrorClassName = `popup__input-error ${!inputAvatarError.isValid ? 'popup__input-error_active' : ''}`;
-  const inputAvatarErrorClassName = `popup__input popup__input_edit_avatar ${inputAvatarError.errorMessage ? 'popup__input_invalid' : ''}`;
+  const spanAvatarErrorClassName = `popup__input-error ${inputAvatarError.errorMessage ? 'popup__input-error_active' : ''}`;
+  const inputAvatarErrorClassName = `popup__input ${inputAvatarError.errorMessage ? 'popup__input_invalid' : ''}`;
 
   return(
     <PopupWithForm

@@ -13,10 +13,10 @@ import DeleteCardPopup from './DeleteCardPopup';
 function App() {
   //стейт переменные попапов
   const [isLoading, setIsLoading] = useState(false);
+  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
   const [isConfirmDeleteCardPopupOpen, setIsConfirmDeleteCardPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({ name: '', link: ''});
   const [currentUser, setCurrentUser] = useState({
@@ -126,29 +126,25 @@ function App() {
       <Header />
       <Main
       cards={cards}
+      onEditAvatar={handleEditAvatarClick}
       onEditProfile={handleEditProfileClick}
       onAddPlace={handleAddPlaceClick}
-      onEditAvatar={handleEditAvatarClick}
       onDeleteClick={handleDeleteClick}
       onCardClick={handleCardClick}
       onCardLike={handleCardLike}
-      />
-      <ImagePopup
-      onClose={closeAllPopups}
-      card={selectedCard}
-      isOpen={isImagePopupOpen}/>
-
-      <EditAvatarPopup
-      isOpen={isEditAvatarPopupOpen}
-      onClose={closeAllPopups}
-      onUpdateAvatar={handleUpdateAvatar}
-      isLoading={isLoading}
       />
 
       <AddPlacePopup
       isOpen={isAddPlacePopupOpen}
       onClose={closeAllPopups}
       onAddPlace={handleAddPlaceSubmit}
+      isLoading={isLoading}
+      />
+
+      <EditAvatarPopup
+      isOpen={isEditAvatarPopupOpen}
+      onClose={closeAllPopups}
+      onUpdateAvatar={handleUpdateAvatar}
       isLoading={isLoading}
       />
 
@@ -166,6 +162,11 @@ function App() {
       onDeleteCard={handleCardDelete}
       isLoading={isLoading}
       />
+
+      <ImagePopup
+      onClose={closeAllPopups}
+      card={selectedCard}
+      isOpen={isImagePopupOpen}/>
 
       <Footer />
     </CurrentUserContext.Provider>

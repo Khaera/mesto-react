@@ -56,9 +56,9 @@ function EditProfilePopup( {
 
 
   const spanNameErrorClassName = `popup__input-error ${!inputNameError.isValid ? 'popup__input-error_active' : ''}`;
-  const inputNameErrorClassName = `popup__input popup__input_edit_name ${inputNameError.errorMessage ? 'popup__input_invalid' : ''}`;
+  const inputNameErrorClassName = `popup__input ${inputNameError.errorMessage ? 'popup__input_invalid' : ''}`;
   const spanDescriptionErrorClassName = `popup__input-error ${!inputDescriptionError.isValid ? 'popup__input-error_active' : ''}`;
-  const inputDescriptionErrorClassName = `popup__input popup__input_edit_description ${inputDescriptionError.errorMessage ? 'popup__input_invalid' : ''}`;
+  const inputDescriptionErrorClassName = `popup__input ${inputDescriptionError.errorMessage ? 'popup__input_invalid' : ''}`;
 
   return(
     <PopupWithForm

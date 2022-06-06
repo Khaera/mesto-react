@@ -13,7 +13,7 @@ function PopupWithForm({name,
       <div className="popup__container">
       <button type="button" className="popup__close-button" onClick={onClose}></button>
       <h2 className="popup__title">{title}</h2>
-      <form onSubmit={onSubmit} name={name} className="popup__form popup__form_edit_profile">
+      <form onSubmit={onSubmit} name={name} className="popup__form">
         {children}
       <button disabled={!isValid ? true : false} type="submit" className={!isValid ? "popup__save-button popup__save-button_disabled" : "popup__save-button"}>{submitButtonText}</button>
       </form>

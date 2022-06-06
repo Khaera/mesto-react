@@ -12,6 +12,17 @@ function EditProfilePopup( {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
+
+  const [inputNameError, setInputNameError] = useState({
+    isValid: true,
+    errorMessage: ''
+  });
+
+  const [inputDescriptionError, setInputDescriptionError] = useState({
+    isValid: true,
+    errorMessage: ''
+  });
+
   React.useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
@@ -19,10 +30,18 @@ function EditProfilePopup( {
 
   function handleNameChange(e) {
     setName(e.target.value);
+    setInputNameError({
+      isValid: e.target.validity.valid,
+      errorMessage: e.target.validationMessage
+    });
   }
 
   function handleDescriptionChange(e) {
     setDescription(e.target.value);
+    setInputDescriptionError({
+      isValid: e.target.validity.valid,
+      errorMessage: e.target.validationMessage
+    });
   }
 
   function handleSubmit(e) {
@@ -33,6 +52,14 @@ function EditProfilePopup( {
     });
   }
 
+  const isValid = inputNameError.isValid && inputDescriptionError.isValid ? true : false;
+
+
+  const spanNameErrorClassName = `popup__input-error ${!inputNameError.isValid ? 'popup__input-error_active' : ''}`;
+  const inputNameErrorClassName = `popup__input popup__input_edit_name ${inputNameError.errorMessage ? 'popup__input_invalid' : ''}`;
+  const spanDescriptionErrorClassName = `popup__input-error ${!inputDescriptionError.isValid ? 'popup__input-error_active' : ''}`;
+  const inputDescriptionErrorClassName = `popup__input popup__input_edit_description ${inputDescriptionError.errorMessage ? 'popup__input_invalid' : ''}`;
+
   return(
     <PopupWithForm
       name="profile-edit"
@@ -40,33 +67,35 @@ function EditProfilePopup( {
       submitButtonText={isLoading ? 'Сохранение...' : 'Сохранить'}
       onClose={onClose}
       isOpen={isOpen}
-      onSubmit={handleSubmit}>
+      onSubmit={handleSubmit}
+      isValid={isValid}>
         <label className="popup__field">
-          <input value={name || ''}
+          <input
+          value={name || ''}
           onChange={handleNameChange}
           id="name-input"
           name="name"
           type="text"
-          className="popup__input popup__input_edit_name"
+          className={inputNameErrorClassName}
           minLength="2"
           maxLength="40"
           required
           placeholder="Ваше имя" />
-          <span className="popup__input-error"></span>
+          <span className={spanNameErrorClassName}>{inputNameError.errorMessage}</span>
         </label>
         <label className="popup__field">
           <input
-          onChange={handleDescriptionChange}
           value={description || ''}
-          id="career-input"
-          name="career"
+          onChange={handleDescriptionChange}
+          id="about-input"
+          name="about"
           type="text"
-          className="popup__input popup__input_edit_career"
+          className={inputDescriptionErrorClassName}
           minLength="2"
           maxLength="200"
           required
           placeholder="Род деятельности" />
-          <span className="popup__input-error"></span>
+          <span className={spanDescriptionErrorClassName}>{inputDescriptionError.errorMessage}</span>
         </label>
       </PopupWithForm>
   );

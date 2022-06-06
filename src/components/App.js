@@ -138,13 +138,6 @@ function App() {
       card={selectedCard}
       isOpen={isImagePopupOpen}/>
 
-      <EditProfilePopup
-      isOpen={isEditProfilePopupOpen}
-      onClose={closeAllPopups}
-      onUpdateUser={handleUpdateUser}
-      isLoading={isLoading}
-      />
-
       <EditAvatarPopup
       isOpen={isEditAvatarPopupOpen}
       onClose={closeAllPopups}
@@ -156,6 +149,13 @@ function App() {
       isOpen={isAddPlacePopupOpen}
       onClose={closeAllPopups}
       onAddPlace={handleAddPlaceSubmit}
+      isLoading={isLoading}
+      />
+
+      <EditProfilePopup
+      isOpen={isEditProfilePopupOpen}
+      onClose={closeAllPopups}
+      onUpdateUser={handleUpdateUser}
       isLoading={isLoading}
       />
 

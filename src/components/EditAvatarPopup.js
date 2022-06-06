@@ -8,7 +8,7 @@ function EditAvatarPopup( {
   isLoading} ) {
   const avatarRef = React.useRef('');
 
-  const [inputError, setInputError] = useState({
+  const [inputAvatarError, setInputAvatarError] = useState({
     errorMessage: '',
     isValid: false
   })
@@ -18,19 +18,22 @@ function EditAvatarPopup( {
     onUpdateAvatar({
       avatar: avatarRef.current.value
     });
-    setInputError({
-        isValid: false,
-        errorMessage: ''
-      })
+    setInputAvatarError({
+      isValid: false,
+      errorMessage: ''
+    });
     avatarRef.current.value = '';
   }
 
   function handleChange(e) {
-    setInputError({
+    setInputAvatarError({
       isValid: e.target.validity.valid,
       errorMessage: e.target.validationMessage
     });
   }
+
+  const spanAvatarErrorClassName = `popup__input-error ${!inputAvatarError.isValid ? 'popup__input-error_active' : ''}`;
+  const inputAvatarErrorClassName = `popup__input popup__input_edit_avatar ${inputAvatarError.errorMessage ? 'popup__input_invalid' : ''}`;
 
   return(
     <PopupWithForm
@@ -40,19 +43,17 @@ function EditAvatarPopup( {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      isValid={inputError.isValid}>
+      isValid={inputAvatarError.isValid}>
       <label className="popup__field">
         <input
         onChange={handleChange}
         ref={avatarRef}
         name="avatar"
         type="url"
-        className={!inputError.errorMessage ?
-        'popup__input popup__input_edit_avatar' :
-        'popup__input popup__input_edit_avatar popup__input_invalid'}
+        className={inputAvatarErrorClassName}
         required
         placeholder="Ссылка на картинку" />
-        <span className={!inputError.isValid ? 'popup__input-error popup__input-error_active' : 'popup__input-error'}>{inputError.errorMessage}</span>
+        <span className={spanAvatarErrorClassName}>{inputAvatarError.errorMessage}</span>
       </label>
       </PopupWithForm>
   );

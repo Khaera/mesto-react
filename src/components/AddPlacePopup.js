@@ -1,100 +1,133 @@
+import React, { useState, useEffect } from "react";
+
 import PopupWithForm from "./PopupWithForm";
-import React, { useState } from "react";
 
-function AddPlacePopup( {isOpen, onClose, onAddPlace, isLoading} ) {
-  const placeRef = React.useRef('');
-  const linkRef = React.useRef('');
-
-  const [inputPlaceError, setInputPlaceError] = useState({
-    isValid: false,
-    errorMessage: ''
+function AddPlacePopup({ isOpen, onClose, onAddPlace, isLoading }) {
+  // стейт-переменная хранить в себе все состояние всех инпутов
+  const [formValues, setFormValues] = useState({
+    place: {
+      value: "",
+      isValid: false,
+      errorMessage: "",
+    },
+    link: {
+      value: "",
+      isValid: false,
+      errorMessage: "",
+    },
   });
 
-  const [inputLinkError, setInputLinkError] = useState({
-    isValid: false,
-    errorMessage: ''
-  });
-
-  function handlePlaceChange(e) {
-    setInputPlaceError({
-      isValid: placeRef.current.validity.valid,
-      errorMessage: placeRef.current.validationMessage
+  useEffect(() => {
+    setFormValues({
+      place: {
+        value: "",
+        isValid: false,
+        errorMessage: "",
+      },
+      link: {
+        value: "",
+        isValid: false,
+        errorMessage: "",
+      },
     });
-  }
+  }, [isOpen]);
 
-  function handleLinkChange(e) {
-    setInputLinkError({
-      isValid: linkRef.current.validity.valid,
-      errorMessage: linkRef.current.validationMessage
-    });
+  function handleChange(e) {
+    // деструктуризируем свойство target, получая значения инпутов и ошибки
+    const { name, value, validity, validationMessage } = e.target;
+    // устанавливаем новое состояние, обязательно совмещая с предыдущим
+    // чтобы значения других инпутов не перезаписались на undefined
+    setFormValues((prevState) => ({
+      ...prevState,
+      [name]: {
+        ...formValues[name],
+        value,
+        isValid: validity.valid,
+        errorMessage: validationMessage,
+      },
+    }));
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
     onAddPlace({
-      name: placeRef.current.value,
-      link: linkRef.current.value
+      name: formValues.place.value,
+      link: formValues.link.value,
     });
 
-    setInputPlaceError({
-      isValid: false,
-      errorMessage: ''
+    setFormValues({
+      place: {
+        value: "",
+        isValid: false,
+        errorMessage: "",
+      },
+      link: {
+        value: "",
+        isValid: false,
+        errorMessage: "",
+      },
     });
-
-    setInputLinkError({
-      isValid: false,
-      errorMessage: ''
-    });
-
-    placeRef.current.value = '';
-    linkRef.current.value = '';
   }
 
-  const isValid = inputPlaceError.isValid && inputLinkError.isValid ? true : false;
+  const isValid = formValues.place.isValid && formValues.link.isValid;
 
-  const spanPlaceErrorClassName = `popup__input-error ${!inputPlaceError.isValid ? 'popup__input-error_active' : ''}`;
-  const inputPlaceErrorClassName = `popup__input popup__input_edit_place ${inputPlaceError.errorMessage ? 'popup__input_invalid' : ''}`;
-  const spanLinkErrorClassName = `popup__input-error ${!inputLinkError.isValid ? 'popup__input-error_active' : ''}`;
-  const inputLinkErrorClassName = `popup__input popup__input_edit_link ${inputLinkError.errorMessage ? 'popup__input_invalid' : ''}`;
+  const spanPlaceErrorClassName = `popup__input-error ${
+    !formValues.place.isValid ? "popup__input-error_active" : ""
+  }`;
+  const inputPlaceErrorClassName = `popup__input popup__input_edit_place ${
+    formValues.place.errorMessage ? "popup__input_invalid" : ""
+  }`;
+  const spanLinkErrorClassName = `popup__input-error ${
+    !formValues.link.isValid ? "popup__input-error_active" : ""
+  }`;
+  const inputLinkErrorClassName = `popup__input popup__input_edit_link ${
+    formValues.link.errorMessage ? "popup__input_invalid" : ""
+  }`;
 
-
-  return(
+  return (
     <PopupWithForm
       name="card-add"
       title="Новое место"
-      submitButtonText={isLoading ? 'Создание...' : 'Создать'}
+      submitButtonText={isLoading ? "Создание..." : "Создать"}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
       isValid={isValid}
-      >
+    >
       <label className="popup__field">
         <input
-        onChange={handlePlaceChange}
-        ref={placeRef}
-        id="place-input"
-        name="place" type="text"
-        className={inputPlaceErrorClassName}
-        minLength="2"
-        maxLength="30"
-        required
-        placeholder="Название" />
-        <span className={spanPlaceErrorClassName}>{inputPlaceError.errorMessage}</span>
+          value={formValues.place.value}
+          onChange={handleChange}
+          id="place-input"
+          name="place"
+          type="text"
+          className={inputPlaceErrorClassName}
+          minLength="2"
+          maxLength="30"
+          required
+          placeholder="Название"
+        />
+        <span className={spanPlaceErrorClassName}>
+          {formValues.place.errorMessage}
+        </span>
       </label>
       <label className="popup__field">
         <input
-        onChange={handleLinkChange}
-        ref={linkRef}
-        id="url-input"
-        name="link"
-        type="url"
-        className={inputLinkErrorClassName}
-        required
-        placeholder="Ссылка на картинку" />
-        <span className={spanLinkErrorClassName}>{inputLinkError.errorMessage}</span>
+          value={formValues.link.value}
+          onChange={handleChange}
+          id="url-input"
+          name="link"
+          type="url"
+          className={inputLinkErrorClassName}
+          required
+          placeholder="Ссылка на картинку"
+        />
+        <span className={spanLinkErrorClassName}>
+          {formValues.link.errorMessage}
+        </span>
       </label>
-      </PopupWithForm>
+    </PopupWithForm>
   );
 }
 

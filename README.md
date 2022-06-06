@@ -8,9 +8,9 @@
 :red_circle: БЭМ    
 :red_circle: JavaScript    
 :red_circle: React     
-:red_circle: Create React App
-:red_circle: Функциональные компоненты React
-:red_circle: Рефы React
+:red_circle: Create React App    
+:red_circle: Функциональные компоненты React    
+:red_circle: Рефы React    
 
 ## :hammer: Функционал проекта:
 :heavy_check_mark: адаптивная страница под телефоны, планшеты и компьютеры    

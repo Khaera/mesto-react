@@ -22,13 +22,11 @@ function PopupWithForm({
         <form onSubmit={onSubmit} name={name} className="popup__form">
           {children}
           <button
-            disabled={!isValid ? true : false}
+            disabled={!isValid}
             type="submit"
-            className={
-              !isValid
-                ? "popup__save-button popup__save-button_disabled"
-                : "popup__save-button"
-            }
+            className={`popup__save-button ${
+              !isValid ? "popup__save-button_disabled" : ""
+            }`}
           >
             {submitButtonText}
           </button>

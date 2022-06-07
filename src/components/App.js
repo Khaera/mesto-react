@@ -37,7 +37,7 @@ function App() {
         setCurrentUser(userData);
         setCards(initialCards);
       })
-      .catch((err) => console.log(`Ошибка загрузки данных: ${err}`));
+      .catch((err) => console.log(err));
   }, []);
 
   function handleEditAvatarClick() {

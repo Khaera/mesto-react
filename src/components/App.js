@@ -129,7 +129,7 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsConfirmDeleteCardPopupOpen(false);
     setIsImagePopupOpen(false);
-    setSelectedCard({ name: "", link: "" });
+    setTimeout(() => setSelectedCard({ name: "", link: "" }), 700); //добавление задержки перед обнулением карточки, иначе картинка обнуляется раньше закрытия попапа
   }
 
   return (

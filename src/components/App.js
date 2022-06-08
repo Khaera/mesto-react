@@ -27,7 +27,7 @@ function App() {
     name: "",
     about: "",
     avatar: "",
-    id: "",
+    id: ""
   });
   const [cards, setCards] = useState([]);
 

@@ -8,7 +8,7 @@ function PopupWithForm({
   children,
   submitButtonText,
   onSubmit,
-  isValid,
+  isValid
 }) {
   return (
     <div className={`popup popup_type_${name} ${isOpen ? "popup_opened" : ""}`}>

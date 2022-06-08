@@ -10,13 +10,13 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
     name: {
       value: "",
       isValid: true,
-      errorMessage: "",
+      errorMessage: ""
     },
     description: {
       value: "",
       isValid: true,
-      errorMessage: "",
-    },
+      errorMessage: ""
+    }
   });
 
   React.useEffect(() => {
@@ -24,13 +24,13 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
       name: {
         value: currentUser.name,
         isValid: true,
-        errorMessage: "",
+        errorMessage: ""
       },
       description: {
         value: currentUser.about,
         isValid: true,
-        errorMessage: "",
-      },
+        errorMessage: ""
+      }
     });
   }, [currentUser, isOpen]);
 
@@ -45,8 +45,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
         ...formValues[name],
         value,
         isValid: validity.valid,
-        errorMessage: validationMessage,
-      },
+        errorMessage: validationMessage
+      }
     }));
   }
 
@@ -54,7 +54,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
     e.preventDefault();
     onUpdateUser({
       name: formValues.name.value,
-      about: formValues.description.value,
+      about: formValues.description.value
     });
   }
 

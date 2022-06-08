@@ -9,23 +9,23 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, isLoading }) {
     avatarRef.current.value = "";
     setInputAvatarError({
       errorMessage: "",
-      isValid: false,
+      isValid: false
     });
   }, [isOpen]);
 
   const [inputAvatarError, setInputAvatarError] = useState({
     errorMessage: "",
-    isValid: false,
+    isValid: false
   });
 
   function handleSubmit(e) {
     e.preventDefault();
     onUpdateAvatar({
-      avatar: avatarRef.current.value,
+      avatar: avatarRef.current.value
     });
     setInputAvatarError({
       isValid: false,
-      errorMessage: "",
+      errorMessage: ""
     });
     avatarRef.current.value = "";
   }
@@ -33,7 +33,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, isLoading }) {
   function handleChange(e) {
     setInputAvatarError({
       isValid: e.target.validity.valid,
-      errorMessage: e.target.validationMessage,
+      errorMessage: e.target.validationMessage
     });
   }
 
